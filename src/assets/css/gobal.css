@@ -1,0 +1,23 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url(../images/bg1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.el-form-item__label {
+  font-size: 18px;
+}
+#newbook_form .el-input__inner {
+  width: 230px;
+}
+#stat_contanier .el-tabs__item {
+  font-size: 18px;
+  font-weight: initial;
+}
+#typeCountContanier .el-table th {
+  text-align: center;
+}
