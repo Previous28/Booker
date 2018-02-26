@@ -16,13 +16,6 @@ const store = new Vuex.Store({
     addNewBook (state, book) {
       state.books.unshift(book)
       console.log("state.book:", state.books)
-      axios.post('http://127.0.0.1:8081/api/add', book)
-      .then(function (response) {
-        console.log(response)
-      })
-      .catch(function (error) {
-        console.log(error)
-      });
     },
     updateIndex (state, index) {
       state.curIndex = index
@@ -41,23 +34,9 @@ const store = new Vuex.Store({
           break
         }
       }
-      axios.post('http://127.0.0.1:8081/api/update', newbook)
-      .then(function (response) {
-        console.log(response)
-      })
-      .catch(function (error) {
-        console.log(error)
-      });
     },
-    deleteBookItem (state, index) {      
-      state.books.splice(state.books.findIndex(book=>book.id === index), 1)
-      axios.get('http://127.0.0.1:8081/api/delete?id=' + index)
-          .then(function (response) {            
-            console.log(response.data)
-          })
-          .catch(function (error) {
-            console.log(error)
-          })
+    deleteBookItem (state, id) {      
+      state.books.splice(state.books.findIndex(book=>book.id === id), 1)
     },
   },
   actions: {
@@ -70,7 +49,37 @@ const store = new Vuex.Store({
           .catch(function (error) {
             console.log(error)
           })
-    }
+    },
+    addItem ({ commit }, book) {
+      return axios.post('http://127.0.0.1:8081/api/add', book)
+              .then(function (response) {
+                if (!response || response.status !== 200 || response.data.err) {
+                  return true
+                } else {
+                  commit('addNewBook', book)
+                  return false
+                }});
+    },
+    updateItem ({ commit }, book) {
+      return axios.post('http://127.0.0.1:8081/api/update', book)
+              .then(function (response) {
+                if (!response || response.status !== 200 || response.data.err) {
+                  return true
+                } else {
+                  commit('updateBookItem', book)
+                  return false
+                }});
+    },
+    deleteItem ({ commit }, index) {
+      return axios.get('http://127.0.0.1:8081/api/delete?id=' + index)
+              .then(function (response) {
+                if (!response || response.status !== 200 || response.data.err) {
+                  return true
+                } else {
+                  commit('deleteBookItem', index)
+                  return false
+                }});
+    },
   }
 })
 

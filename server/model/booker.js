@@ -27,8 +27,8 @@ function updateItem(book) {
   fs.writeFileSync(filepath, JSON.stringify(data))
 }
 
-function deleteItem(id) {
-  data.books.splice(data.books.findIndex(book=>book.id === id), 1)
+function deleteItem(id) {  
+  data.books.splice(data.books.findIndex(book=>book.id == id), 1)
   fs.writeFileSync(filepath, JSON.stringify(data))
 }
 

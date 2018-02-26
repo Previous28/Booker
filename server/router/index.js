@@ -11,7 +11,7 @@ router.get('/api/delete', function(req, res) {
     booker.deleteItem(req.query.id)
     res.json({ err: false })
   } catch (e) {
-    res.json({ err: e })
+    res.json({ err: true })
   }
 })
 

@@ -99,18 +99,28 @@ export default {
     onSubmit: function() {
       this.form.id = index++
       this.form.bookname = "《" + this.form.bookname + "》"
-      store.commit('addNewBook', this.form)
-      this.confirmDialogVisible = true
-      this.form = {
-        bookname: '',
-        auther: '',
-        type: '',
-        state: '',
-        startDate: '?',
-        endDate: '?',
-        ranking: 0,
-        id: ''
-      }
+      store.dispatch('addItem', this.form)
+          .then((err) => {
+            if (!err) {
+              this.$message({
+                message: '添加成功！',
+                type: 'success'
+              })
+              this.confirmDialogVisible = true
+              this.form = {
+                bookname: '',
+                auther: '',
+                type: '',
+                state: '',
+                startDate: '?',
+                endDate: '?',
+                ranking: 0,
+                id: ''
+              }
+            } else {
+              this.$message.error('添加失败！')
+            }
+          })
     },
     gotoBookStep: function() {
       store.commit('updateIndex', '1')

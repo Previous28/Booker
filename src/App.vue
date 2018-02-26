@@ -15,7 +15,9 @@
 <script>
 import Navbar from './components/navbar.vue'
 import store from '@/store/store'
-store.dispatch('fetchData')
+if (store.state.books.length === 0) {
+  store.dispatch('fetchData')
+}
 export default {
   name: 'App',
   components: { Navbar }

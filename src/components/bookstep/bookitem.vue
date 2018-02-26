@@ -144,12 +144,32 @@ export default {
       this.dialogFormVisible = false
     },
     confirmEdit: function() {
-      store.commit('updateBookItem', this.tempEdit)  
-      this.dialogFormVisible = false
+      store.dispatch('updateItem', this.tempEdit)
+          .then((err) => {
+            if (!err) {
+              this.$message({
+                message: '修改成功！',
+                type: 'success'
+              });
+            } else {
+              this.$message.error('修改失败！')
+            }
+            this.dialogFormVisible = false
+          })
     },
     deleteItem: function() {
-      store.commit('deleteBookItem', this.tempEdit.id)
-      this.dialogFormVisible = false
+      store.dispatch('deleteItem', this.tempEdit.id)
+          .then((err) => {
+              if (!err) {
+                this.$message({
+                  message: '删除成功！',
+                  type: 'success'
+                });
+              } else {
+                this.$message.error('删除失败！')
+              }
+              this.dialogFormVisible = false
+            })
     }
   }
 }
