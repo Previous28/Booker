@@ -33,15 +33,15 @@ export default {
   methods: {
     tableRowClassName({row, rowIndex}) {
       if (row.state === '已读完') {
-        return 'type1';
+        return 'type1'
       } else if (row.state === '阅读中') {
-        return 'type2';
+        return 'type2'
       } else if (row.state === '想读') {
-        return 'type3';
+        return 'type3'
       } else if (row.state === '中止') {
-        return 'type4';
+        return 'type4'
       } 
-      return '';
+      return ''
     }
   },
 }

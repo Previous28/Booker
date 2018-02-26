@@ -77,7 +77,7 @@
 import store from '../store/store'
 import router from '@/router'
 
-var index = Math.random();
+var index = Math.random()
 
 export default {
   data() {
@@ -97,9 +97,9 @@ export default {
   },
   methods: {
     onSubmit: function() {
-      this.form.id = index++;
-      store.commit('addNewBook', this.form);
-      this.confirmDialogVisible = true;
+      this.form.id = index++
+      store.commit('addNewBook', this.form)
+      this.confirmDialogVisible = true
       this.form = {
         bookname: '',
         auther: '',
@@ -109,10 +109,10 @@ export default {
         endDate: '?',
         ranking: 0,
         id: ''
-      };
+      }
     },
     gotoBookStep: function() {
-      store.commit('updateIndex', '1');
+      store.commit('updateIndex', '1')
       router.push({ path: 'bookstep'})
     },
     cancelAdd: function() {

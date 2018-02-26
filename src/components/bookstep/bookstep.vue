@@ -4,7 +4,7 @@
       <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6"
         v-for="(book, index) in books" 
         :key="book.id">
-        <BookItem :bookInfo="book" :id="index"/>
+        <BookItem :bookInfo="book" :curid="index"/>
       </el-col>
     </el-row>
   </div>

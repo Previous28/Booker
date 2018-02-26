@@ -41,28 +41,28 @@ export default {
       return store.state.books
     },
     typeOnes: function () {
-      return this.books.filter(book=>book.type === '文学艺术');
+      return this.books.filter(book=>book.type === '文学艺术')
     },
     typeTwos: function () {
-      return this.books.filter(book=>book.type === '人物传记');
+      return this.books.filter(book=>book.type === '人物传记')
     },
     typeThrees: function () {
-      return this.books.filter(book=>book.type === '历史文学');
+      return this.books.filter(book=>book.type === '历史文学')
     },
     typeFours: function () {
-      return this.books.filter(book=>book.type === '名著经典');
+      return this.books.filter(book=>book.type === '名著经典')
     },
     typeFives: function () {
-      return this.books.filter(book=>book.type === '其他类别');
+      return this.books.filter(book=>book.type === '其他类别')
     }
   },
   mounted() {
-    this.drawPieChart();
+    this.drawPieChart()
   },
   methods: {
     drawPieChart() {
       // 基于准备好的dom，初始化echarts实例
-      var firstChart = echarts.init(document.getElementById('typeStatistics'), 'light');
+      var firstChart = echarts.init(document.getElementById('typeStatistics'), 'light')
       // 绘制图表
       firstChart.setOption({
         title: { text: '书籍类别总体情况' },
@@ -94,7 +94,7 @@ export default {
           ]
         }
       });
-      var secondChart = echarts.init(document.getElementById('stateStatistics'),'light');
+      var secondChart = echarts.init(document.getElementById('stateStatistics'),'light')
       secondChart.setOption({
         title: { text: '阅读状态总体情况' },
         series: {

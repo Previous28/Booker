@@ -26,16 +26,16 @@ export default {
   data() {
     return {
       isUseRouter: true
-    };
+    }
   },
   methods: {
     handleSelect(index) {
-      store.commit('updateIndex', index);
+      store.commit('updateIndex', index)
     }
   },
   computed: {
     activeIndex () {
-      return store.state.curIndex;
+      return store.state.curIndex
     }
   }
 }

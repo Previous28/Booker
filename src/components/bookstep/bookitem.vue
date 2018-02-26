@@ -106,16 +106,16 @@ export default {
         state: this.bookInfo.state,
         startDate: this.bookInfo.startDate,
         endDate: this.bookInfo.endDate,
-        ranking: this.bookInfo.ranking
+        ranking: Number(this.bookInfo.ranking)
       }
-    };
+    }
   },
   props: {
     bookInfo: {
       type: Object,
       required: true
     },
-    id: {
+    curid: {
       type: Number,
       require: true
     }
@@ -125,31 +125,31 @@ export default {
   },
   methods: {
     getImageSrc: function() {
-      if ((this.id % 5) === 0) {
-        return require('../../assets/images/item0.jpg');
-      } else if ((this.id % 5) === 1) {
-        return require('../../assets/images/item1.jpg');
-      } else if ((this.id % 5) === 2) {
-        return require('../../assets/images/item2.jpg');
-      } else if ((this.id % 5) === 3) {
-        return require('../../assets/images/item3.jpg');
-      } else if ((this.id % 5) === 4) {
-        return require('../../assets/images/item4.jpg');
+      if ((this.curid % 5) === 0) {
+        return require('../../assets/images/item0.jpg')
+      } else if ((this.curid % 5) === 1) {
+        return require('../../assets/images/item1.jpg')
+      } else if ((this.curid % 5) === 2) {
+        return require('../../assets/images/item2.jpg')
+      } else if ((this.curid % 5) === 3) {
+        return require('../../assets/images/item3.jpg')
+      } else if ((this.curid % 5) === 4) {
+        return require('../../assets/images/item4.jpg')
       }
     },
     editBookInfo: function() {
-      this.dialogFormVisible = true;
+      this.dialogFormVisible = true
     },
     cancelEdit: function() {
-      this.dialogFormVisible = false;
+      this.dialogFormVisible = false
     },
     confirmEdit: function() {
-      store.commit('updateBookItem', this.tempEdit);      
-      this.dialogFormVisible = false;
+      store.commit('updateBookItem', this.tempEdit)  
+      this.dialogFormVisible = false
     },
     deleteItem: function() {
-      store.commit('deleteBookItem', this.tempEdit.id);
-      this.dialogFormVisible = false;
+      store.commit('deleteBookItem', this.tempEdit.id)
+      this.dialogFormVisible = false
     }
   }
 }
@@ -184,7 +184,7 @@ export default {
 }
 
 .clearfix:after {
-  clear: both
+  clear: both;
 }
 .cardview {
   margin: 20px 0;
