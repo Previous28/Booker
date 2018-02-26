@@ -1,7 +1,7 @@
 <template>
   <div id="newbook_contanier">
     <div>
-      <img src="../assets/images/aside.jpg" id="aside_img">
+      <img src="../../assets/images/aside.jpg" id="aside_img">
     </div>
     <div id="newbook_form">
       <el-form ref="form" :model="form" label-width="100px" size="medium">
@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import store from '../store/store'
+import store from '@/store/store'
 import router from '@/router'
 
 var index = Math.random()
@@ -98,6 +98,7 @@ export default {
   methods: {
     onSubmit: function() {
       this.form.id = index++
+      this.form.bookname = "《" + this.form.bookname + "》"
       store.commit('addNewBook', this.form)
       this.confirmDialogVisible = true
       this.form = {

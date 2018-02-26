@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Bookstep from '../components/bookstep/bookstep.vue'
-import Newbook from '../components/newbook.vue'
+import Newbook from '../components/newbook/newbook.vue'
 import Statistics from '../components/statistics/statistics.vue'
 
 
