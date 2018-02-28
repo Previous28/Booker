@@ -133,7 +133,6 @@ export default {
 #stat_contanier {
   width: 60%;
   margin: 40px auto;
-  /* height: 870px; */
   background: rgba(250, 250, 250, 0.9);
   padding: 20px 20px 20px 3px;
 }

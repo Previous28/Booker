@@ -28,7 +28,7 @@
         :readingState="bookInfo.state"
         :bookType="bookInfo.type" />
     </el-card>
-
+    <!-- 点击编辑按钮之后弹出来的修改对话框 -->
     <el-dialog 
       title="编辑书迹" 
       :visible.sync="dialogFormVisible"

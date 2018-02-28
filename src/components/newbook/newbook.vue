@@ -76,7 +76,7 @@
 <script>
 import store from '@/store/store'
 import router from '@/router'
-
+// 随机生成基数index
 var index = Math.random()
 
 export default {
@@ -124,6 +124,7 @@ export default {
     },
     gotoBookStep: function() {
       store.commit('updateIndex', '1')
+      // 编程式导航
       router.push({ path: 'bookstep'})
     },
     cancelAdd: function() {

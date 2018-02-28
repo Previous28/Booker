@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Vuex from 'vuex'
+// 使用axios作为http服务模块
 import axios from 'axios'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
     books: [],
+    // 记录当前页面
     curIndex: '1'
   },
   mutations: {
