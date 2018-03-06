@@ -23,16 +23,10 @@ const store = new Vuex.Store({
       state.curIndex = index
     },
     updateBookItem (state, newbook) {
-      for (var index in state.books) {
+      for (let index in state.books) {
         console.log('book:', state.books[index])
         if (state.books[index].id === newbook.id) {
-          state.books[index].bookname = newbook.bookname
-          state.books[index].auther = newbook.auther
-          state.books[index].type = newbook.type
-          state.books[index].state = newbook.state
-          state.books[index].startDate = newbook.startDate
-          state.books[index].endDate = newbook.endDate
-          state.books[index].ranking = newbook.ranking
+          Object.assign(state.books[index], newbook)
           break
         }
       }

@@ -12,15 +12,9 @@ function addItem(book) {
 }
 
 function updateItem(book) {
-  for (var index in data.books) {
+  for (let index in data.books) {
     if (data.books[index].id === book.id) {
-      data.books[index].bookname = book.bookname;
-      data.books[index].auther = book.auther;
-      data.books[index].type = book.type;
-      data.books[index].state = book.state;
-      data.books[index].startDate = book.startDate;
-      data.books[index].endDate = book.endDate;
-      data.books[index].ranking = book.ranking;
+      Object.assign(data.books[index], book)
       break
     }
   }
